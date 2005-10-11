@@ -1,0 +1,13 @@
+--- #YAML:1.0
+name:                UNIVERSAL-require
+version:             0.10
+abstract:            ~
+license:             perl
+generated_by:        ExtUtils::MakeMaker version 6.30_01
+author:              ~
+distribution_type:   module
+requires:     
+    Test::More:                    0.47
+meta-spec:
+    url: http://module-build.sourceforge.net/META-spec-new.html
+    version: 1.1
