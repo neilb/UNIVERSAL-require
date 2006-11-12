@@ -20,7 +20,7 @@ ok( $Dummy::VERSION,                            '  $VERSION ok' );
     delete $INC{'Dummy.pm'};
     ok( !Dummy->require(1.0),                       'require($version) fail' );
     like( $UNIVERSAL::require::ERROR,
-          '/^Dummy version 1 required--this is only version 0.5/' );
+          '/^Dummy version 1.* required--this is only version 0.5/' );
 }
 
 {

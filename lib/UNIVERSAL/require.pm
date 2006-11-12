@@ -1,5 +1,5 @@
 package UNIVERSAL::require;
-$UNIVERSAL::require::VERSION = '0.10';
+$UNIVERSAL::require::VERSION = '0.11';
 
 # We do this because UNIVERSAL.pm uses CORE::require().  We're going
 # to put our own require() into UNIVERSAL and that makes an ambiguity.
@@ -83,6 +83,11 @@ sub require {
     # Load the module.
     my $file = $module . '.pm';
     $file =~ s{::}{/}g;
+
+    # For performance reasons, check if its already been loaded.  This makes
+    # things about 4 times faster.
+    return 1 if $INC{$file};
+
     my $return = eval qq{ 
 #line $call_line "$call_file"
 CORE::require(\$file); 

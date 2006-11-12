@@ -1,3 +1,8 @@
+0.11  Sat Nov 11 18:13:20 CST 2006
+    * Sped up require() by about 400% for already loaded modules.
+      [rt.cpan.org 21141]
+    - Fix the test for the changed version error in 5.10.
+
 0.10  Mon Oct 10 19:10:33 PDT 2005
     * Split out of UNIVERSAL-exports into its own distribution.
     * UNIVERSAL::require no longer uses eval STRING in require().  This 
