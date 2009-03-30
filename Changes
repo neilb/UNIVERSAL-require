@@ -1,3 +1,14 @@
+0.13  Mon Mar 30 17:50:10 BST 2009
+    Bug Fixes
+    * $module->require now always resets $@ which removes a trap of using $@
+      to indicate an error, rather than checking $module->require directly.
+      [rt.cpan.org 44444]
+
+0.12  Mon Mar 30 10:53:51 BST 2009
+    Test Fixes
+    * bleadperl introduced a new warning deprecating "use UNIVERSAL"
+      (thank goodness) which interfered with t/require.t
+
 0.11  Sat Nov 11 18:13:20 CST 2006
     * Sped up require() by about 400% for already loaded modules.
       [rt.cpan.org 21141]

@@ -1,5 +1,5 @@
 package UNIVERSAL::require;
-$UNIVERSAL::require::VERSION = '0.11';
+$UNIVERSAL::require::VERSION = '0.13';
 
 # We do this because UNIVERSAL.pm uses CORE::require().  We're going
 # to put our own require() into UNIVERSAL and that makes an ambiguity.
@@ -17,7 +17,7 @@ $Level = 0;
 
 =head1 NAME
 
-  UNIVERSAL::require - require() modules from a variable
+UNIVERSAL::require - require() modules from a variable
 
 =head1 SYNOPSIS
 
@@ -86,7 +86,8 @@ sub require {
 
     # For performance reasons, check if its already been loaded.  This makes
     # things about 4 times faster.
-    return 1 if $INC{$file};
+    # We use the eval { } to make sure $@ is not set. See RT #44444 for details
+    return eval { 1 } if $INC{$file};
 
     my $return = eval qq{ 
 #line $call_line "$call_file"
@@ -94,7 +95,7 @@ CORE::require(\$file);
 };
 
     # Check for module load failure.
-    if( $@ ) {
+    if( !$return ) {
         $UNIVERSAL::require::ERROR = $@;
         return $return;
     }
@@ -104,14 +105,12 @@ CORE::require(\$file);
         eval qq{
 #line $call_line "$call_file"
 \$module->VERSION($want_version);
-};
-
-        if( $@ ) {
+1;
+}       or do {
             $UNIVERSAL::require::ERROR = $@;
             return 0;
-        }
+        };
     }
-
     return $return;
 }
 
@@ -147,12 +146,11 @@ sub use {
 package $call_package;
 #line $call_line "$call_file"
 \$module->import(\@imports);
-};
-
-    if( $@ ) {
+1;
+}   or do {
         $UNIVERSAL::require::ERROR = $@;
         return 0;
-    }
+    };
 
     return $return;
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/perl -Tw
 
-use Test::More tests => 11;
+use Test::More tests => 16;
 use_ok "UNIVERSAL::require";
 
 use lib qw(t);
@@ -26,11 +26,29 @@ ok( $Dummy::VERSION,                            '  $VERSION ok' );
 {
     my $warning = '';
     local $SIG{__WARN__} = sub { $warning = join '', @_ };
-    eval 'use UNIVERSAL';
-    is( $warning, '',     'use UNIVERSAL doesnt interfere' );
+    eval 'require UNIVERSAL';
+    is( $warning, '',     'loading UNIVERSAL doesnt interfere' );
 }
 
 
 my $evil = "Dummy; Test::More::fail('this should never be called');";
 ok !$evil->require;
 isnt $@, '';
+
+# make sure $@ and ERROR are set appropriately
+{
+    local $@;
+    ok( !$@,                    '$@ unset' );
+    
+    # do a failed eval a before we try to load Dummy again
+    eval { die $$ };
+    like( $@, qr/$$/,           '   $@ set to ' . $$ );
+
+    ok( Dummy->require,         "   ->require()" );
+    ok( !$@,                    '       $@ unset ' . $@ );
+    ok( !$UNIVERSAL::require::ERROR,
+                                '       $ERROR unset ' );
+}
+
+
+
