@@ -6,5 +6,3 @@ t/Dummy.pm
 t/require.t
 t/taint.t
 t/use.t
-META.yml                                 Module meta-data (added by MakeMaker)
-SIGNATURE                                Public-key signature (added by MakeMaker)
