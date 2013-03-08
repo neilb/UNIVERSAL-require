@@ -29,7 +29,7 @@ WriteMakefile(
         resources => {
             license     =>      'http://dev.perl.org/licenses/',
             bugtracker  =>      'http://rt.cpan.org/Public/Dist/Display.html?Name=UNIVERSAL-require',
-            repository  =>      'http://svn.schwern.org/repos/CPAN/UNIVERSAL-require/trunk/',
+            repository  =>      'https://github.com/neilbowers/UNIVERSAL-require',
         },
 
         no_index => {

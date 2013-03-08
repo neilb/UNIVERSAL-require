@@ -1,3 +1,9 @@
+Revision history for perl module UNIVERSAL::require
+
+0.13_1 2013-03-08
+    - first test release after getting comaint
+    - no changes other than specifying github repository
+
 0.13  Mon Mar 30 17:50:10 BST 2009
     Bug Fixes
     * $module->require now always resets $@ which removes a trap of using $@
