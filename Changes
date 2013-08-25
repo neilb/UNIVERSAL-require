@@ -1,5 +1,8 @@
 Revision history for perl module UNIVERSAL::require
 
+0.14 2013-08-25
+    - changed the repository meta_merge to the new format
+
 0.13_1 2013-03-08
     - first test release after getting comaint
     - no changes other than specifying github repository
