@@ -1,42 +1,42 @@
-Revision history for perl module UNIVERSAL::require
+Revision history for Perl module UNIVERSAL::require
 
 0.14 2013-08-25
-    - changed the repository meta_merge to the new format
+    - Changed the repository meta_merge to the new format
+    - Tweaked format (mainly release dates) to conform to CPAN::Changes::Spec
 
 0.13_1 2013-03-08
-    - first test release after getting comaint
+    - first test release by NEILB after getting comaint
     - no changes other than specifying github repository
 
-0.13  Mon Mar 30 17:50:10 BST 2009
-    Bug Fixes
-    * $module->require now always resets $@ which removes a trap of using $@
+0.13 2009-03-30
+    - $module->require now always resets $@ which removes a trap of using $@
       to indicate an error, rather than checking $module->require directly.
       [rt.cpan.org 44444]
 
-0.12  Mon Mar 30 10:53:51 BST 2009
-    Test Fixes
-    * bleadperl introduced a new warning deprecating "use UNIVERSAL"
+0.12 2009-03-30
+    - bleadperl introduced a new warning deprecating "use UNIVERSAL"
       (thank goodness) which interfered with t/require.t
 
-0.11  Sat Nov 11 18:13:20 CST 2006
-    * Sped up require() by about 400% for already loaded modules.
+0.11 2006-11-11
+    - Sped up require() by about 400% for already loaded modules.
       [rt.cpan.org 21141]
     - Fix the test for the changed version error in 5.10.
 
-0.10  Mon Oct 10 19:10:33 PDT 2005
-    * Split out of UNIVERSAL-exports into its own distribution.
-    * UNIVERSAL::require no longer uses eval STRING in require().  This 
+0.10 2005-10-10
+    - Split out of UNIVERSAL-exports into its own distribution.
+    - UNIVERSAL::require no longer uses eval STRING in require().  This 
       closes a security hole.
     - Testing that it works under taint mode.
     - Added license and copyright notice.
-    * Added use()
+    - Added use()
     - Mention Module::Load in SEE ALSO.
 
-0.03  Sun Dec 16 21:51:58 EST 2001
+0.03 2001-12-16
     - Fixed a little nit when "use UNIVERSAL" is involved.
 
-0.02  Mon Jun 25 15:00:19 EDT 2001
-    * -->API CHANGE!<-- require() no longer dies on failure
+0.02 2001-06-25
+    - -->API CHANGE!<-- require() no longer dies on failure
 
-0.01  Mon Jan 22 11:06:50 EST 2001
-    * First version, adapted from the Perl 6 RFC prototypes 253 and 257.
+0.01 2001-01-22
+    - First version, adapted from the Perl 6 RFC prototypes 253 and 257.
+
