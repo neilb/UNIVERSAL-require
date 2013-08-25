@@ -1,5 +1,5 @@
 package UNIVERSAL::require;
-$UNIVERSAL::require::VERSION = '0.13_1';
+$UNIVERSAL::require::VERSION = '0.14';
 
 # We do this because UNIVERSAL.pm uses CORE::require().  We're going
 # to put our own require() into UNIVERSAL and that makes an ambiguity.
@@ -181,6 +181,7 @@ See F<http://www.perl.com/perl/misc/Artistic.html>
 
 Michael G Schwern <schwern@pobox.com>
 
+Now maintained by Neil Bowers (NEILB).
 
 =head1 SEE ALSO
 
