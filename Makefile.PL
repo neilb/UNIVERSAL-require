@@ -26,6 +26,7 @@ WriteMakefile(
     ($mm_ver >= 6.31 ? (LICENSE => 'perl') : ()),
 
     ($mm_ver <= 6.45 ? () : (META_MERGE => {
+        'meta-spec' => { version => 2 },
         resources => {
             license     =>      'http://dev.perl.org/licenses/',
             bugtracker  =>      'http://rt.cpan.org/Public/Dist/Display.html?Name=UNIVERSAL-require',

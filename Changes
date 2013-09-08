@@ -1,5 +1,9 @@
 Revision history for Perl module UNIVERSAL::require
 
+0.15
+    - Hadn't specific meta-spec version 2, so github repo wasn't turning
+      up in the metadata.
+
 0.14 2013-08-25
     - Changed the repository meta_merge to the new format
     - Tweaked format (mainly release dates) to conform to CPAN::Changes::Spec
