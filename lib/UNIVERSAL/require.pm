@@ -45,7 +45,7 @@ arcane eval() work, you can do this:
 
     $module->require;
 
-It doesn't save you much typing, but it'll make alot more sense to
+It doesn't save you much typing, but it'll make a lot more sense to
 someone who's not a ninth level Perl acolyte.
 
 =head1 Methods
