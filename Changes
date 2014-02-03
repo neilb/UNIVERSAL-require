@@ -1,5 +1,8 @@
 Revision history for Perl module UNIVERSAL::require
 
+0.16 2014-02-03
+    - All seems fine with previous dev release
+
 0.15_01 2014-02-03
     - Added README
     - Specified min version of perl 5.6.0
