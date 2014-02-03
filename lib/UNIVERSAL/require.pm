@@ -8,6 +8,7 @@ BEGIN { require UNIVERSAL }
 
 package UNIVERSAL;
 
+use 5.006;
 use strict;
 
 use vars qw($Level);
