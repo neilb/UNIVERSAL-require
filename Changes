@@ -1,7 +1,10 @@
 Revision history for Perl module UNIVERSAL::require
 
+0.15_01 2014-02-03
+    - Added README
+
 0.15 2013-09-28
-    - Hadn't specific meta-spec version 2, so github repo wasn't turning
+    - Hadn't specified meta-spec version 2, so github repo wasn't turning
       up in the metadata.
 
 0.14 2013-08-25
