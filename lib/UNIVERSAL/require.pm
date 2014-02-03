@@ -10,6 +10,7 @@ package UNIVERSAL;
 
 use 5.006;
 use strict;
+use warnings;
 
 use vars qw($Level);
 $Level = 0;
