@@ -1,6 +1,7 @@
 Revision history for Perl module UNIVERSAL::require
 
 0.17 2014-04-19
+    - Check for valid module names. RT#94866 from TOBYINK.
     - Changed used of die() to croak() RT#23113
     - Fixed typo in pod (fschlich++)
 

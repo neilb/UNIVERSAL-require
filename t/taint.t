@@ -5,6 +5,8 @@ use Test::More tests => 2;
 
 use UNIVERSAL::require;
 
-my $tainted = $0."bogus";
-ok !eval { $tainted->require or die $@};
+my $tainted = $0;
+$tainted =~ s/\A.*\z/bananas/;
+
+ok !eval { $tainted->require or die $@ };
 like $@, '/^Insecure dependency in require /';

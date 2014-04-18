@@ -13,6 +13,9 @@ use strict;
 use warnings;
 use Carp;
 
+# regexp for valid module name. Lifted from Module::Runtime
+my $module_name_rx = qr/[A-Z_a-z][0-9A-Z_a-z]*(?:::[0-9A-Z_a-z]+)*/;
+
 use vars qw($Level);
 $Level = 0;
 
@@ -78,6 +81,8 @@ sub require {
 
     croak("UNIVERSAL::require() can only be run as a class method")
       if ref $module; 
+
+    croak("invalid module name '$module'") if $module !~ /\A$module_name_rx\z/;
 
     croak("UNIVERSAL::require() takes no or one arguments") if @_ > 2;
 

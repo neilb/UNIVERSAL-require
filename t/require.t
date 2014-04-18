@@ -1,6 +1,6 @@
 #!/usr/bin/perl -Tw
 
-use Test::More tests => 16;
+use Test::More tests => 15;
 use_ok "UNIVERSAL::require";
 
 use lib qw(t);
@@ -32,8 +32,9 @@ ok( $Dummy::VERSION,                            '  $VERSION ok' );
 
 
 my $evil = "Dummy; Test::More::fail('this should never be called');";
-ok !$evil->require;
-isnt $@, '';
+eval { $evil->require };
+ok($@ && $@ =~ /invalid module name/,
+   "trying to add trailing code should fail early due to a bad module name");
 
 # make sure $@ and ERROR are set appropriately
 {
