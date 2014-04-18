@@ -1,5 +1,5 @@
 package UNIVERSAL::require;
-$UNIVERSAL::require::VERSION = '0.16';
+$UNIVERSAL::require::VERSION = '0.17';
 
 # We do this because UNIVERSAL.pm uses CORE::require().  We're going
 # to put our own require() into UNIVERSAL and that makes an ambiguity.
@@ -11,6 +11,7 @@ package UNIVERSAL;
 use 5.006;
 use strict;
 use warnings;
+use Carp;
 
 use vars qw($Level);
 $Level = 0;
@@ -75,10 +76,10 @@ sub require {
 
     $UNIVERSAL::require::ERROR = '';
 
-    die("UNIVERSAL::require() can only be run as a class method")
+    croak("UNIVERSAL::require() can only be run as a class method")
       if ref $module; 
 
-    die("UNIVERSAL::require() takes no or one arguments") if @_ > 2;
+    croak("UNIVERSAL::require() takes no or one arguments") if @_ > 2;
 
     my($call_package, $call_file, $call_line) = caller($Level);
 

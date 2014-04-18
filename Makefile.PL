@@ -20,7 +20,8 @@ WriteMakefile(
     AUTHOR              => 'Michael G Schwern <schwern@pobox.com>',
 
     PREREQ_PM    => {
-        Test::More => 0.47
+        'Test::More' => 0.47,
+        'Carp'       => 0,
     },
 
     ($mm_ver >= 6.31 ? (LICENSE => 'perl') : ()),
