@@ -1,7 +1,9 @@
 #!/usr/bin/perl -Tw
 
 use strict;
-use Test::More tests => 2;
+use Config;
+use Test::More $Config{ccflags} =~ /-DSILENT_NO_TAINT_SUPPORT/
+    ? ( skip_all => 'No taint support' ) : ( tests => 2 );
 
 use UNIVERSAL::require;
 
