@@ -1,5 +1,9 @@
 Revision history for Perl module UNIVERSAL::require
 
+0.18 2015-02-24
+    - Skip the taint test if Perl was compiled without taint support.
+      RAZ++
+
 0.17 2014-04-19
     - Check for valid module names. RT#94866 from TOBYINK.
     - Changed used of die() to croak() RT#23113
