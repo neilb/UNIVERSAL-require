@@ -22,6 +22,8 @@ WriteMakefile(
     PREREQ_PM    => {
         'Test::More' => 0.47,
         'Carp'       => 0,
+        'strict'     => 0,
+        'warnings'   => 0,
     },
 
     ($mm_ver >= 6.31 ? (LICENSE => 'perl') : ()),
