@@ -16,8 +16,7 @@ use Carp;
 # regexp for valid module name. Lifted from Module::Runtime
 my $module_name_rx = qr/[A-Z_a-z][0-9A-Z_a-z]*(?:::[0-9A-Z_a-z]+)*/;
 
-use vars qw($Level);
-$Level = 0;
+our $Level = 0;
 
 =pod
 
